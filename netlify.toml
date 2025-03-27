@@ -1,0 +1,21 @@
+[build]
+  publish = "public"
+  command = "npm run build"  # or the command you use to build your site
+
+[redirects]
+  # Redirect to /go/embed.html with the URL query parameter
+  [[redirects]]
+    from = "/search"
+    to = "/go/embed.html?url=:splat"
+    status = 301
+    force = true
+
+[headers]
+  [[headers]]
+    for = "/*"
+    [headers.values]
+      Cache-Control = "public, max-age=0, must-revalidate"
+
+[functions]
+  # This section allows you to set up serverless functions if needed
+  directory = "netlify-functions"
