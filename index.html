@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Redirect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .search-container {
+            text-align: center;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-container">
+    <h1>Search and Redirect</h1>
+    <input type="text" id="searchInput" placeholder="Enter URL">
+    <button onclick="redirectToPage()">Go</button>
+</div>
+
+<script>
+    function redirectToPage() {
+        const userInput = document.getElementById('searchInput').value;
+        if (userInput) {
+            const encodedUrl = encodeURIComponent(userInput);
+            window.location.href = '/active/embed.html?url=' + encodedUrl;
+        } else {
+            alert('Please enter a URL');
+        }
+    }
+</script>
+
+</body>
+</html>
